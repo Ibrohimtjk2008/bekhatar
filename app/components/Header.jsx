@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "@/app/assets/icons/logo.svg";
 import newicon from "@/app/assets/icons/newicon.svg";
@@ -16,7 +19,9 @@ import barrier from "@/app/assets/icons/Barrier.svg";
 import Link from "next/link";
 import Language_button from "./language_button";
 
-export default function Header() {
+export default function Header({ type }) {
+  const pathname = usePathname();
+
   return (
     <>
       <div className="container mx-auto">
@@ -117,42 +122,58 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className="bg-[#FFE9DC]">
+      <div className={type === "main" ? "bg-[#FFE9DC]" : "bg-white"}>
         <div className="container mx-auto">
           <ul className="flex justify-between items-center py-5">
             <li>
               <Link
-                href={"#"}
-                className="flex items-center gap-5 text-gray-500"
+                href="/camera"
+                className={`flex items-center gap-5 transition-colors duration-300 ${
+                  pathname === "/camera"
+                    ? "text-blue-500 font-semibold"
+                    : "text-gray-500 hover:text-blue-400"
+                }`}
               >
-                <Image src={veb} alt="error"></Image>
+                <Image src={veb} alt="Домофоны" />
                 <p>Камеры</p>
               </Link>
             </li>
             <li>
               <Link
-                href={"#"}
-                className="flex items-center gap-5 text-gray-500"
+                href="/intercoms"
+                className={`flex items-center gap-5 transition-colors duration-300 ${
+                  pathname === "/intercoms"
+                    ? "text-blue-500 font-semibold"
+                    : "text-gray-500 hover:text-blue-400"
+                }`}
               >
-                <Image src={intercom} alt="error"></Image>
+                <Image src={intercom} alt="Домофоны" />
                 <p>Домофоны</p>
               </Link>
             </li>
             <li>
               <Link
-                href={"#"}
-                className="flex items-center gap-5 text-gray-500"
+                href="/control"
+                className={`flex items-center gap-5 transition-colors duration-300 ${
+                  pathname === "/control"
+                    ? "text-blue-500 font-semibold"
+                    : "text-gray-500 hover:text-blue-400"
+                }`}
               >
-                <Image src={castle} alt="error"></Image>
+                <Image src={castle} alt="Домофоны" />
                 <p>Контроль доступа</p>
               </Link>
             </li>
             <li>
               <Link
-                href={"#"}
-                className="flex items-center gap-5 text-gray-500"
+                href="/monitors"
+                className={`flex items-center gap-5 transition-colors duration-300 ${
+                  pathname === "/monitors"
+                    ? "text-blue-500 font-semibold"
+                    : "text-gray-500 hover:text-blue-400"
+                }`}
               >
-                <Image src={screen} alt="error"></Image>
+                <Image src={screen} alt="Домофоны" />
                 <p>Мониторы</p>
               </Link>
             </li>
@@ -167,10 +188,14 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href={"#"}
-                className="flex items-center gap-5 text-gray-500"
+                href="/barrier"
+                className={`flex items-center gap-5 transition-colors duration-300 ${
+                  pathname === "/barrier"
+                    ? "text-blue-500 font-semibold"
+                    : "text-gray-500 hover:text-blue-400"
+                }`}
               >
-                <Image src={barrier} alt="error"></Image>
+                <Image src={barrier} alt="Домофоны" />
                 <p>Шлагбаумы</p>
               </Link>
             </li>

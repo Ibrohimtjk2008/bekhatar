@@ -16,19 +16,20 @@ export default function Maincart({
 }) {
   return (
     <>
-      <Link
-        href={"#"}
+      <div
         className="w-1/5 h-fit
-       rounded-2xl bg-white relative"
+       rounded-2xl bg-white relative "
       >
-        
+        <div id={`${productnumber}`} className="scroll-mt-24">
           <div className="flex justify-center items-center h-56 pt-8">
-            <Image
-              src={product}
-              width={250}
-              height={250}
-              alt="vabimagecart"
-            ></Image>
+            <Link href={`/product`}>
+              <Image
+                src={product}
+                width={250}
+                height={250}
+                alt="vabimagecart"
+              ></Image>
+            </Link>
           </div>
           <div className="absolute top-2 right-5">
             <Image
@@ -46,19 +47,19 @@ export default function Maincart({
               <div className="flex flex-col gap-4">
                 <p>
                   Кешбэк
-                  <span className="text-red-500">{cashback}</span>
+                  <span className="text-red-500"> {cashback} c.</span>
                 </p>
 
                 <div>
                   <div className="flex items-center gap-2">
                     <p className="line-through text-gray-500 text-xl">
-                      {oldprice}
+                      {oldprice} c.
                     </p>
                     <p className="text-white text-sm bg-red-500  px-2 rounded-full">
                       {discount}
                     </p>
                   </div>
-                  <p className="text-2xl">{newprice}</p>
+                  <p className="text-2xl">{newprice} c.</p>
                 </div>
               </div>
               <div className="flex flex-col items-end gap-4">
@@ -73,8 +74,8 @@ export default function Maincart({
               </div>
             </div>
           </div>
-        
-      </Link>
+        </div>
+      </div>
     </>
   );
 }

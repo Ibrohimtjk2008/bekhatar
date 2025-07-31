@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Stock></Stock>
-      <Header></Header>
+      <Header type={"main"}></Header>
       <div
         className="w-full h-auto"
         style={{
